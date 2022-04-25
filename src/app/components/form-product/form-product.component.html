@@ -1,0 +1,17 @@
+<form [formGroup]="formProduct" (submit)="submitForm()">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name" [value]="product.name">
+        <div class="alert alert-danger mt-1" role="alert" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+            Please write a name !
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="text" class="form-control" id="price" formControlName="price">
+        <div class="alert alert-danger mt-1" role="alert" *ngIf="price?.invalid && (price?.dirty || price?.touched)">
+            Please set valid price !
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="formProduct.invalid">Submit</button>
+</form>
